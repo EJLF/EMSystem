@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EMSystem.Models.Department>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a class="btn btn-primary" role="button" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID/Code
+            </th>
+            <th>
+                Department Name
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptName)
+            </td>
+           
+                <td> <a class="btn btn-success" role="button" asp-action="Edit" asp-route-DeptId="@item.DeptId">Update</a></td>
+                <td><a class="btn btn-warning" role="button" asp-action="Details" asp-route-DeptId="@item.DeptId">Details</a>   </td>
+                <td><a class="btn btn-danger" role="button" asp-action="Delete" asp-route-DeptId="@item.DeptId">Delete</a>  </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

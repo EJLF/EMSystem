@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EMSystem.Models.Employee>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<p>
+    <a class="btn btn-primary" role="button" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Date Of Birth
+                
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Department
+            </th>
+            <th>Edit</th>
+             <th>View</th>
+              <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DeptName)
+            </td>
+            
+               <td> <a class="btn btn-success" role="button" asp-action="Edit" asp-route-Empid="@item.EmpId"><i class="fa fa-edit"></i></a></td>
+                <td><a class="btn btn-warning" role="button" asp-action="Details" asp-route-Empid="@item.EmpId"><i class="fa fa-display"></i></a></td>
+                <td><a class="btn btn-danger" role="button" asp-action="Delete" asp-route-Empid="@item.EmpId"><i class="fa fa-trash"></i></a></td>
+            
+        </tr>
+}
+    </tbody>
+</table>

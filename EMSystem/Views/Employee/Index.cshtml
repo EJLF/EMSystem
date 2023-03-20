@@ -1,0 +1,48 @@
+﻿@model EMSystem.Models.DropdownList
+
+
+@{
+
+    ViewData["Title"] = "Home Page";
+
+}
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>
+
+Binding Dropdown List With Database in ASP.NET Core
+
+    </title>
+
+</head>
+
+<body>
+
+    <div class="form-control">
+
+        <div class="col-md-12">
+
+            <div class="col-md-3">
+
+                Customer Name:
+
+            </div>
+
+        <div class="col-md-3">
+
+                @Html.DropDownListFor(model => model.deptList, new SelectList(Model.deptList, "DeptId", "DeptName"), new { @class = "form-control" })
+
+           </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
